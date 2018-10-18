@@ -1,0 +1,40 @@
+#filters{
+    padding: 20px;
+}
+.project{
+    margin-top: 20px;
+    border: solid 1px darkgray;
+    border-radius: 5px;
+    padding: 0px;
+}
+
+.project-header{
+    padding: 10px;
+    background-color: lightsteelblue;
+    border-bottom: solid 1px darkgray;
+}
+
+.project-footer{
+    padding: 10px;
+    border-top: solid 1px darkgray;
+}
+
+.project-commits{
+
+}
+
+.panel-heading.collapsed .fa-chevron-down,
+.panel-heading .fa-chevron-right {
+  display: none;
+}
+
+.panel-heading.collapsed .fa-chevron-right,
+.panel-heading .fa-chevron-down {
+  display: inline-block;
+}
+
+.panel-heading {
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: bold;
+}
