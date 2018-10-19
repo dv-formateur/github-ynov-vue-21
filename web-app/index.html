@@ -154,13 +154,13 @@
                     
                     <div class="project-footer">
                         <div class="panel-heading collapsed" data-toggle="collapse" v-bind:data-target="'#' + project.author + '-' + project.name"
-                        @click="loadRepoReadme(project.author + '-' + project.name + '-content', project.author, project.name)">
+                        @click="loadRepoReadme(project)">
                                 Readme
                                 <span class="fa fa-chevron-down"></span>
                                 <span class="fa fa-chevron-right"></span>
                         </div>
                         <div class="collapse" v-bind:id="project.author + '-' + project.name" class="">
-                            <pre v-bind:id="project.author + '-' + project.name + '-content'"></pre>
+                            <pre v-bind:id="project.author + '-' + project.name + '-content'">{{project.readme}}</pre>
                         </div>
                     </div>
                 </div>

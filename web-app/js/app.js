@@ -49,7 +49,8 @@ var app = new Vue({
             var project = {
                 author: git_id,
                 name: project_name,
-                commits : []
+                commits : [],
+                readme: ''
             };
 
             jQuery.ajax({
@@ -99,16 +100,15 @@ var app = new Vue({
             }
         },
 
-        loadRepoReadme: function(targetId, author, project_name ){
-            var target = document.getElementById(targetId);
+        loadRepoReadme: function(project){
             var scope = this;
 
-            if(target.innerText){
+            if(project.readme){
                 return;
             }
 
             if(isOffline){
-                target.textContent = atob(offline_readme.content);
+                project.readme = atob(offline_readme.content);
                 return;
             }
             
@@ -119,19 +119,20 @@ var app = new Vue({
                     
                 },
                 dataType: 'json',
-                url: 'https://api.github.com/repos/' + author + '/' + project_name + '/contents/README.md',
+                url: 'https://api.github.com/repos/' + project.author + '/' + project.name + '/readme',
                 beforeSend: function (xhr) {
                     if(scope.auth_token && scope.auth_user){
                         xhr.setRequestHeader ("Authorization", "Basic " + btoa(scope.auth_user + ":" + scope.auth_token));
                     } 
                 },
                 success: function(data) {
-                    target.textContent = atob(data.content);
+                    project.readme = atob(data.content);
                 },
 
                 error: function(error){
                     console.log(error);
                     scope.error = error.responseText;
+                    
                 }
             });
         },
