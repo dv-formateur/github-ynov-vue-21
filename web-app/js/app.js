@@ -14,6 +14,8 @@ const names = [
 var app = new Vue({
     el: '#app',
     data: {
+        error: '',
+
         name_list : names,
         project_list : projects,
 
@@ -67,6 +69,7 @@ var app = new Vue({
 
                 error: function(error){
                     console.log(error);
+                    scope.error = error.responseText;
                 }
             });
         },
@@ -93,6 +96,10 @@ var app = new Vue({
                     console.log(error);
                 }
             });
+        },
+
+        resetError: function(){
+            this.error = '';
         }
     }
 })

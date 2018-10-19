@@ -91,7 +91,14 @@
                         </div>
                     </div>
                 </div>
+
             </div>
+        </div>
+        <div v-if="error" id="error-message" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" @click='resetError' aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+             {{error}}
         </div>
     </div>
 
