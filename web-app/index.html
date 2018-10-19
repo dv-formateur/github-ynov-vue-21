@@ -71,7 +71,7 @@
                                     <a :href="commit.author.html_url" target="blank">{{commit.author.login}}</a>
                                 </td>
                                 <td>{{new Date(commit.commit.author.date).toLocaleDateString()}}</td>
-                                <td>{{commit.commit.message}}</td>
+                                <td><pre>{{commit.commit.message}}</pre></td>
                                 <td>
                                     <a :href="commit.html_url" target="blank"><i class="fas fa-eye"></i></a>
                                 </td>

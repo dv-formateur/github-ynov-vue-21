@@ -6,6 +6,10 @@
     border: solid 1px darkgray;
     border-radius: 5px;
     padding: 0px;
+
+    -webkit-box-shadow: 1px 4px 14px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 4px 14px 1px rgba(0,0,0,0.75);
+    box-shadow: 1px 4px 14px 1px rgba(0,0,0,0.75);
 }
 
 .project-header{
