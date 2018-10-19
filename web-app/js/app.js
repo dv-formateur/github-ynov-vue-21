@@ -181,16 +181,18 @@ var app = new Vue({
 
         loadCommitsFor: function(scope, project){
             var min_date = new Date(scope.filter_date ? scope.filter_date : 0);
-            
 
             project.commits = project.commits.filter(function(commit){
                 var commit_date = new Date(commit.commit.author.date);
-                console.log(commit_date.getTime() >= min_date.getTime());
                 return commit_date.getTime() >= min_date.getTime();
             });
 
+            console.log(project.commits);
+
             if( project.commits.length > 0){
-                project.commits = project.commits.slice(5);
+                console.log(project.commits.slice(0, 5));
+                project.commits = project.commits.slice(0, 5);
+                
                 scope.search_result.push(project);
             }
         },
