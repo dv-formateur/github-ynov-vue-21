@@ -14,6 +14,19 @@
     border-bottom: solid 1px darkgray;
 }
 
+.commit-avatar{
+    max-width: 40px;
+}
+
+.project-author{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.project-name{
+    font-style: italic;
+}
+
 .project-footer{
     padding: 10px;
     border-top: solid 1px darkgray;
