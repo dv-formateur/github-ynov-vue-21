@@ -137,6 +137,7 @@ var app = new Vue({
             for(var project_name of search_project){
                 for(var git_id of search_name){
                     if(isOffline){
+                        this.error = 'Vous etes actuellement en mode hors ligne, les donnees ont ete generees.'
                         var project = {
                             author: git_id,
                             name: project_name,
@@ -173,8 +174,6 @@ var app = new Vue({
 
                 error: function(error){
                     console.log(error);
-                    project.commits = offline_commits;
-                    scope.loadCommitsFor(scope, project);
                     scope.error = error.responseText;
                 }
             });
@@ -220,8 +219,8 @@ var app = new Vue({
                 },
 
                 error: function(error){
-                    target.textContent = atob(offline_readme.content);
                     console.log(error);
+                    scope.error = error.responseText;
                 }
             });
         },
