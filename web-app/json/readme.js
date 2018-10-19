@@ -1,4 +1,4 @@
-{
+[{
     "name": "README.md",
     "path": "README.md",
     "sha": "49a8044a05a9bc6fc0b3e0d0d468abb5bb315cc2",
@@ -16,3 +16,4 @@
       "html": "https://github.com/raphaelCharre/github-ynov-vue/blob/master/README.md"
     }
   }
+]

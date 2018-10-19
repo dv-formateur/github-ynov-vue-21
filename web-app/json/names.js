@@ -1,4 +1,25 @@
 [
+    "Killy85",
+    "Nair0fl",
+    "raphaelCharre",
+    "mathiasLoiret",
+    "thomaspich",
     "TeofiloJ",
-    "RaphaelCharre"
+    "Grigusky",
+    "Dakistos",
+    "KevinPautonnier",
+    "BenoitCochet",
+    "sfongue",
+    "ClementCaillaud",
+    "gfourny",
+    "Mokui",
+    "LordInateur",
+    "AntoineGOSSET",
+    "etienneYnov",
+    "Coblestone",
+    "AlexDesvallees",
+    "rudy8530",
+    "benjaminbra",
+    "mael61",
+    "alixnzt"
 ]
