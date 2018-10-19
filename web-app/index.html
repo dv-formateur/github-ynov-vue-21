@@ -83,7 +83,7 @@
 
             <div id="projects" class="col-sm-12 col-md-9">
                 <h1 class="text-muted display-4" v-if="search_result.length > 0">{{search_result.length}} resultat(s) :</h1>
-                <div class="container project" v-for="project in search_result">
+                <div class="container-fluid project" v-for="project in search_result">
                     <div class="project-header">
                         <a :href="'https://github.com/' + project.author + '/' + project.name + '/archive/master.zip'" alt="Telecharger master" title="Telecharger master"><i class="fas fa-arrow-alt-circle-down"></i></a>
                         <span class="project-author">{{project.author}}</span> - 

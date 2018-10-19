@@ -1,4 +1,4 @@
-const isOffline = false;
+const isOffline = true;
 
 const projects = [
     "github-ynov-vue"

@@ -1,4 +1,4 @@
-#filters{
+#filters, #projects{
     padding: 20px;
 }
 .project{
@@ -11,9 +11,11 @@
 
 .project-header{
     padding: 10px;
-    background-color: #E1E6FA;
+    background-color: aliceblue;
     border-bottom: solid 1px darkgray;
 }
+
+
 
 .commit-avatar{
     max-width: 40px;
