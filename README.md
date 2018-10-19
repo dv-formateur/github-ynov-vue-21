@@ -1,6 +1,6 @@
 # github-ynov-vue
 
-Projet de Matere Ynov
+Projet de Mastere Ynov
 
 Afficher la liste des repositories github et pouvoir filtrer par utilisateur et par projet.
 
