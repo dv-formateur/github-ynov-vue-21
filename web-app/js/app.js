@@ -190,7 +190,7 @@ var app = new Vue({
             });
 
             if( project.commits.length > 0){
-                project.commits.slice(5);
+                project.commits = project.commits.slice(5);
                 scope.search_result.push(project);
             }
         },
