@@ -146,7 +146,7 @@
                         <tbody>
                             <tr v-for="commit in project.commits">
                                 <td>
-                                    <img v-bind:src="commit.author?commit.author.avatar_url:'' " class="commit-avatar commit-avatar-ntm img-thumbnail img-fluid " alt="Photo de profil">
+                                    <img v-bind:src="commit.author?commit.author.avatar_url:'' " style="max-width: 40px;" class="img-thumbnail img-fluid " alt="Photo de profil">
                                     <a :href="commit.author? commit.author.html_url : ''" alt="Profile du commiter" title="Profile du commiter" target="blank">{{commit.author ? commit.author.login : ''}}</a>
                                 </td>
                                 <td>{{new Date(commit.commit.author.date).toLocaleDateString()}}</td>
