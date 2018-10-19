@@ -31,7 +31,7 @@
                     <div class="form-group">
                         <label for="project-choice">Choix du projet : </label>
                         <select v-model="filter_project" class="form-control" name="project-choice" id="project-choice">
-                            <option value="">Tous</option>
+                            <option value="">Tous - {{project_list.length}}</option>
                             <option v-for="project in project_list" v-bind:value="project">
                                 {{project}}
                             </option>
@@ -45,7 +45,7 @@
                     <div class="form-group">
                         <label for="count-choice">Choix du compte : </label>
                         <select v-model="filter_name" class="form-control" name="count-choice" id="count-choice">
-                            <option value="">Tous</option>
+                            <option value="">Tous - {{name_list.length}}</option>
                             <option v-for="name in name_list" v-bind:value="name">
                                 {{name}}
                             </option>
@@ -56,7 +56,7 @@
 
                     <hr>
 
-                    <p>L'API Github limite le nombre de requete possible, afin d'augmenter la limite nous vous conseillons de renseigner les champs suivants.</p>
+                    <p  class="text-justify">L'API Github limite le nombre de requete possible, afin d'augmenter la limite nous vous conseillons de renseigner les champs suivants.</p>
 
                     <label for="auth-user">Nom d'utilisateur : </label>
                     <input type="text" class="form-control" name="auth-user" id="auth-user" v-model="auth_user" />

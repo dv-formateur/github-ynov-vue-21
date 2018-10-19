@@ -2,9 +2,10 @@ const isOffline = false;
 
 const projects = [
     "github-ynov-vue"
-];
+].sort();
 
-const names = [
+var names = [
+    "alixnzt",
     "Killy85",
     "Nair0fl",
     "raphaelCharre",
@@ -26,8 +27,7 @@ const names = [
     "AlexDesvallees",
     "rudy8530",
     "benjaminbra",
-    "mael61",
-    "alixnzt"
+    "mael61"
 ].sort();
 
 const offline_commits = [
