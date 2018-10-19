@@ -1,0 +1,18 @@
+{
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "49a8044a05a9bc6fc0b3e0d0d468abb5bb315cc2",
+    "size": 379,
+    "url": "https://api.github.com/repos/raphaelCharre/github-ynov-vue/contents/README.md?ref=master",
+    "html_url": "https://github.com/raphaelCharre/github-ynov-vue/blob/master/README.md",
+    "git_url": "https://api.github.com/repos/raphaelCharre/github-ynov-vue/git/blobs/49a8044a05a9bc6fc0b3e0d0d468abb5bb315cc2",
+    "download_url": "https://raw.githubusercontent.com/raphaelCharre/github-ynov-vue/master/README.md",
+    "type": "file",
+    "content": "IyBnaXRodWIteW5vdi12dWUNCg0KUHJvamV0IGRlIE1hdGVyZSBZbm92DQoN\nCkFmZmljaGVyIGxhIGxpc3RlIGRlcyByZXBvc2l0b3JpZXMgZ2l0aHViIGV0\nIHBvdXZvaXIgZmlsdHJlciBwYXIgdXRpbGlzYXRldXIgZXQgcGFyIHByb2pl\ndC4NCg0KRm9uY3Rpb25uYWxpdGVzIDoNCi0gRmlsdHJlciBsZXMgcmVwb3Np\ndG9yaWVzIHBhciB1dGlsaXNhdGV1cnMNCi0gRmlsdHJlciBsZXMgcmVwb3Np\ndG9yaWVzIHBhciBwcm9qZXQNCi0gQWZmaWNoZXIgbGEgbGlzdGUgZGVzIDUg\nZGVybmllcnMgY29tbWl0cw0KLSBBZmZpY2hlciBsZSBSRUFETUUgZHUgcHJv\namV0DQoNCkEgdmVuaXIgOg0KLSBGaWx0cmVyIGxlcyByZXBvc2l0b3JpZXMg\nYSBwYXJ0aXIgZCd1bmUgZGF0ZQ==\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/raphaelCharre/github-ynov-vue/contents/README.md?ref=master",
+      "git": "https://api.github.com/repos/raphaelCharre/github-ynov-vue/git/blobs/49a8044a05a9bc6fc0b3e0d0d468abb5bb315cc2",
+      "html": "https://github.com/raphaelCharre/github-ynov-vue/blob/master/README.md"
+    }
+  }

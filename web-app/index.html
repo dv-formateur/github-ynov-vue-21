@@ -19,6 +19,12 @@
 
 <body>
     <div id="app" class="container-fluid">
+        <div v-if="error" id="error-message" class="alert alert-danger alert-dismissible fade show col-sm-12" role="alert">
+            <button type="button" class="close" @click='resetError' aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+                {{error}}
+        </div>
         <div class="row">
             <div id="filters" class="col-sm-12 col-md-3">
                 <form>
@@ -32,8 +38,9 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="date-choice">Choix periode : </label>
-                        <input type="date" class="form-control" name="date-choice" id="date-choice" v-model="filter_date" />
+                        <label for="date-choice-start">Choix periode : </label>
+                        <input type="date" class="form-control" name="date-choice-start" id="date-choice-start" v-model="filter_date_start" />
+                        <input type="date" class="form-control" name="date-choice-end" id="date-choice-end" v-model="filter_date_end" />
                     </div>
                     <div class="form-group">
                         <label for="count-choice">Choix du compte : </label>
@@ -46,11 +53,22 @@
                     </div>
 
                     <button class="btn btn-info" type="button" @click="search">Rechercher</button>
+
+                    <hr>
+
+                    <p>L'API Github limite le nombre de requete possible, afin d'augmenter la limite nous vous conseillons de renseigner les champs suivants.</p>
+
+                    <label for="auth-user">Nom d'utilisateur : </label>
+                    <input type="text" class="form-control" name="auth-user" id="auth-user" v-model="auth_user" />
+
+                    <label for="auth-token">API Token : </label>
+                    <input type="text" class="form-control" name="auth-token" id="auth-token" v-model="auth_token" />
+
                 </form>
             </div>
 
-
             <div id="projects" class="col-sm-12 col-md-9">
+                <h1 v-if="search_result.length > 0">{{search_result.length}} resultat(s)</h1>
                 <div class="container project" v-for="project in search_result">
                     <div class="project-header">
                         <a :href="'https://github.com/' + project.author + '/' + project.name + '/archive/master.zip'" alt="Telecharger master" title="Telecharger master"><i class="fas fa-arrow-alt-circle-down"></i></a>
@@ -67,8 +85,8 @@
                         <tbody>
                             <tr v-for="commit in project.commits">
                                 <td>
-                                    <img v-bind:src="commit.author.avatar_url" class="img-thumbnail img-fluid commit-avatar" alt="Photo de profil">
-                                    <a :href="commit.author.html_url" alt="Profile du commiter" title="Profile du commiter" target="blank">{{commit.author.login}}</a>
+                                    <img v-bind:src="commit.author?commit.author.avatar_url:'' " class="img-thumbnail img-fluid commit-avatar" alt="Photo de profil">
+                                    <a :href="commit.author? commit.author.html_url : ''" alt="Profile du commiter" title="Profile du commiter" target="blank">{{commit.author ? commit.author.login : ''}}</a>
                                 </td>
                                 <td>{{new Date(commit.commit.author.date).toLocaleDateString()}}</td>
                                 <td><pre>{{commit.commit.message}}</pre></td>
@@ -94,12 +112,7 @@
 
             </div>
         </div>
-        <div v-if="error" id="error-message" class="alert alert-danger alert-dismissible fade show col-sm-12" role="alert">
-            <button type="button" class="close" @click='resetError' aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-             {{error}}
-        </div>
+        
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
