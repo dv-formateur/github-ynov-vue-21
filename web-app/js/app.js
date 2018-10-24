@@ -3,10 +3,10 @@ const isOffline = false;
 var app = new Vue({
     el: '#app',
     data: {
-        error: '',
+        errors : [],
 
-        name_list : names,
-        project_list : projects,
+        name_list : [],
+        project_list : [],
 
         filter_date_start : '',
         filter_date_end : '',
@@ -16,15 +16,53 @@ var app = new Vue({
         auth_user: '',
         auth_token: '',
 
-        search_result : []
+        search_result : [],
+
+        offline_commits : null,
+        offline_readme : null
 
     } ,
+    created:  function(){
+        var scope = this;
+
+        $.getJSON("./json/names.js")
+            .done(function (json) {
+                scope.name_list = json.sort();
+            })
+            .fail(function (jqxhr, textStatus, error) {
+                console.log("Request Failed: " + error);
+            });
+
+        $.getJSON("./json/projects.js")
+            .done(function (json) {
+                scope.project_list = json.sort();
+            })
+            .fail(function (jqxhr, textStatus, error) {
+                console.log("Request Failed: " + error);
+            });
+
+        $.getJSON("./json/commits.js")
+            .done(function (json) {
+                scope.offline_commits = json;
+            })
+            .fail(function (jqxhr, textStatus, error) {
+                console.log("Request Failed: " + error);
+            });
+
+        $.getJSON("./json/readme.js")
+            .done(function (json) {
+                scope.offline_readme = json[0];
+            })
+            .fail(function (jqxhr, textStatus, error) {
+                console.log("Request Failed: " + error);
+            });
+    },
 
     methods: {
         search : function(){
             this.search_result = [];
-            var search_project = this.filter_project ? [this.filter_project] : projects;
-            var search_name = this.filter_name ? [this.filter_name] : names;
+            var search_project = this.filter_project ? [this.filter_project] : this.project_list;
+            var search_name = this.filter_name ? [this.filter_name] : this.name_list;
 
             var scope = this;
 
@@ -74,7 +112,7 @@ var app = new Vue({
 
                 error: function(error){
                     console.log(error);
-                    scope.error = error.responseText;
+                    scope.addError('Erreur lors du chargement des commits du depot : ' + git_id + '/' + project_name);
                 }
             });
         },
@@ -131,14 +169,18 @@ var app = new Vue({
 
                 error: function(error){
                     console.log(error);
-                    scope.error = error.responseText;
+                    scope.addError('Erreur lors du chargement du fichier Readme du depot : ' + project.author + '/' + project.name);
                     
                 }
             });
         },
 
+        addError: function(value){
+            this.errors.push(value);
+        },
+
         resetError: function(){
-            this.error = '';
+            this.errors = [];
         }
     }
 })

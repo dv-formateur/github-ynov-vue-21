@@ -21,53 +21,12 @@
 </head>
 
 <body>
-
-    <script>
-        let names = [];
-        let projects = [];
-        let offline_commits = [];
-        let offline_readme = null;
-
-
-        $.getJSON("./json/names.js")
-            .done(function (json) {
-                names = json.sort();
-            })
-            .fail(function (jqxhr, textStatus, error) {
-                console.log("Request Failed: " + error);
-            });
-
-        $.getJSON("./json/projects.js")
-            .done(function (json) {
-                projects = json.sort();
-            })
-            .fail(function (jqxhr, textStatus, error) {
-                console.log("Request Failed: " + error);
-            });
-
-        $.getJSON("./json/commits.js")
-            .done(function (json) {
-                offline_commits = json;
-            })
-            .fail(function (jqxhr, textStatus, error) {
-                console.log("Request Failed: " + error);
-            });
-
-        $.getJSON("./json/readme.js")
-            .done(function (json) {
-                offline_readme = json[0];
-            })
-            .fail(function (jqxhr, textStatus, error) {
-                console.log("Request Failed: " + error);
-            });
-    </script>
-
     <div id="app" class="container-fluid">
-        <div v-if="error" id="error-message" class="alert alert-danger alert-dismissible fade show col-sm-12" role="alert">
+        <div id="errors" v-if="errors.length>0" class="alert alert-danger alert-dismissible fade show col-sm-12 fixed-bottom" role="alert">
             <button type="button" class="close" @click='resetError' aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
-            {{error}}
+            <p v-for="error in errors">{{error}}</p>
         </div>
         <div class="row">
             <div id="filters" class="col-sm-12 col-md-3">
