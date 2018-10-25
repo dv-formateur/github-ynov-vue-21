@@ -75,3 +75,17 @@ pre {
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
+
+@media (max-width: 992px) {
+    #filters{
+        position: relative;
+    }
+
+}
+@media (min-width: 992px) {
+    #filters{
+        position: fixed;
+        overflow-y: scroll;
+        max-height: 100%;
+    }
+}

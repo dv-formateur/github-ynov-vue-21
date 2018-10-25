@@ -29,7 +29,7 @@
             <p v-for="error in errors">{{error}}</p>
         </div>
         <div class="row">
-            <div id="filters" class="col-sm-12 col-md-3">
+            <div id="filters" class="col-sm-12 col-lg-3">
                 <form>
                     <h2 class="content-title text-muted display-4">Authentification :</h2>
 
@@ -84,7 +84,7 @@
                 <hr>
             </div>
 
-            <div id="projects" class="col-sm-12 col-md-9">
+            <div id="projects" class="col-sm-12 offset-lg-3 col-lg-9">
                 <h1 class="text-muted display-4" v-if="search_result.length > 0">{{search_result.length}} resultat(s) :</h1>
                 <div class="container-fluid project" v-for="project in search_result">
                     <div class="project-header">
