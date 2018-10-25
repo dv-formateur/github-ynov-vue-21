@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/marked@0.3.6"></script>
+    <script src="https://unpkg.com/lodash@4.16.0"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="./img/favicon.ico" />
@@ -130,7 +132,7 @@
                             <span class="fa fa-chevron-right"></span>
                         </div>
                         <div class="collapse" v-bind:id="project.author + '-' + project.name" class="">
-                            <pre v-bind:id="project.author + '-' + project.name + '-content'">{{project.readme}}</pre>
+                            <div v-bind:id="project.author + '-' + project.name + '-content'" v-html="project.readme"></div>
                         </div>
                     </div>
                 </div>

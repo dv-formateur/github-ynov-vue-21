@@ -1,5 +1,11 @@
 const isOffline = false;
 
+function b64DecodeUnicode(str) {
+    return decodeURIComponent(Array.prototype.map.call(atob(str), function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+    }).join(''))
+}
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -164,7 +170,9 @@ var app = new Vue({
                     } 
                 },
                 success: function(data) {
-                    project.readme = atob(data.content);
+                    console.log(b64DecodeUnicode(data.content));
+
+                    project.readme = marked(b64DecodeUnicode(data.content), { sanitize: true });
                 },
 
                 error: function(error){
